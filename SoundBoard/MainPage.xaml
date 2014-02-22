@@ -1,0 +1,116 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SoundBoard.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignData SampleData/SampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Name="SoundDataTemplate">
+            <Grid Background="{StaticResource PhoneAccentBrush}"
+                  Margin="0,0,12,12">
+                <Grid VerticalAlignment="Top"
+                                            HorizontalAlignment="Right"
+                                            Width="40"
+                                            Height="40"
+                                            Margin="0,6,6,0">
+                    <Ellipse Stroke="{StaticResource PhoneForegroundBrush}"
+                                             StrokeThickness="3"/>
+                    <Image Source="/Assets/AppBar/Play.png"></Image>
+                </Grid>
+                <StackPanel VerticalAlignment="Bottom">
+                    <TextBlock Text="{Binding Title}" Margin="6,0,0,6" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <MediaElement Name="AudioPlayer"
+                      Volume="1"/>
+        
+        <!--Pivot Control-->
+        <phone:Pivot Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="{Binding Animals.Title}">
+                <!--Double line list with text wrapping-->
+                <phone:LongListSelector 
+                    SelectionChanged="LongListSelector_SelectionChanged"
+                    Margin="0,0,-12,0" 
+                    ItemsSource="{Binding Animals.Items}"
+                    LayoutMode="Grid"
+                    GridCellSize="150,150"
+                    ItemTemplate="{StaticResource SoundDataTemplate}">
+                    
+                </phone:LongListSelector>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="{Binding Cartoons.Title}">
+                <!--Double line list no text wrapping-->
+                <phone:LongListSelector Margin="0,0,-12,0" 
+                                        SelectionChanged="LongListSelector_SelectionChanged"
+                                        ItemsSource="{Binding Cartoons.Items}"
+                                        LayoutMode="Grid"
+                                        GridCellSize="150,150"
+                                        ItemTemplate="{StaticResource SoundDataTemplate}">
+                
+                </phone:LongListSelector>
+            </phone:PivotItem>
+
+            <!--Pivot item three-->
+            <phone:PivotItem Header="{Binding Taunts.Title}">
+                <!--Double line list no text wrapping-->
+                <phone:LongListSelector Margin="0,0,-12,0" 
+                                        SelectionChanged="LongListSelector_SelectionChanged"
+                                        ItemsSource="{Binding Taunts.Items}"
+                                        LayoutMode="Grid"
+                                        GridCellSize="150,150"
+                                        ItemTemplate="{StaticResource SoundDataTemplate}">
+
+                </phone:LongListSelector>
+            </phone:PivotItem>
+
+            <!--Pivot item four-->
+            <phone:PivotItem Header="{Binding Warning.Title}">
+                <!--Double line list no text wrapping-->
+                <phone:LongListSelector Margin="0,0,-12,0" 
+                                        SelectionChanged="LongListSelector_SelectionChanged"
+                                        ItemsSource="{Binding Warning.Items}"
+                                        LayoutMode="Grid"
+                                        GridCellSize="150,150"
+                                        ItemTemplate="{StaticResource SoundDataTemplate}">
+
+                </phone:LongListSelector>
+            </phone:PivotItem>
+
+
+            <!--Pivot item four-->
+            <phone:PivotItem Header="{Binding CustomSounds.Title}">
+                <!--Double line list no text wrapping-->
+                <phone:LongListSelector Margin="0,0,-12,0" 
+                                        SelectionChanged="LongListSelector_SelectionChanged"
+                                        ItemsSource="{Binding CustomSounds.Items}"
+                                        LayoutMode="Grid"
+                                        GridCellSize="150,150"
+                                        ItemTemplate="{StaticResource SoundDataTemplate}">
+
+                </phone:LongListSelector>
+            </phone:PivotItem>
+
+        </phone:Pivot>
+
+        
+    </Grid>
+
+</phone:PhoneApplicationPage>

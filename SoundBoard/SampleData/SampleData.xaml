@@ -1,0 +1,49 @@
+﻿<vm:SoundModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:SoundBoard.ViewModels">
+
+    <vm:SoundModel.Animals>
+        <vm:SoundGroup Title="Animals Sample">
+            <vm:SoundGroup.Items>
+                <vm:SoundData Title="Animal 1" FilePath="Animals.wav" />
+                <vm:SoundData Title="Animal 2" FilePath="Animals2.wav" />
+            </vm:SoundGroup.Items>
+        </vm:SoundGroup>
+    </vm:SoundModel.Animals>
+
+    <vm:SoundModel.Cartoons>
+        <vm:SoundGroup Title="Cartoon Sample">
+            <vm:SoundGroup.Items>
+                <vm:SoundData Title="Cartoon 1" FilePath="Cartoon.wav" />
+                <vm:SoundData Title="Cartoon 2" FilePath="Cartoon.wav" />
+                <vm:SoundData Title="Cartoon 3" FilePath="Cartoon.wav" />
+            </vm:SoundGroup.Items>
+        </vm:SoundGroup>
+    </vm:SoundModel.Cartoons>
+
+    <vm:SoundModel.Taunts>
+        <vm:SoundGroup Title="Taunts Sample">
+            <vm:SoundGroup.Items>
+                <vm:SoundData Title="Taunts 1" FilePath="Taunts.wav" />
+            </vm:SoundGroup.Items>
+        </vm:SoundGroup>
+    </vm:SoundModel.Taunts>
+
+    <vm:SoundModel.Warning>
+        <vm:SoundGroup Title="Warning Sample">
+            <vm:SoundGroup.Items>
+                <vm:SoundData Title="Warning 1" FilePath="Taunts.wav" />
+            </vm:SoundGroup.Items>
+        </vm:SoundGroup>
+    </vm:SoundModel.Warning>
+
+    <vm:SoundModel.CustomSounds>
+        <vm:SoundGroup Title="Warning Sample">
+            <vm:SoundGroup.Items>
+                <vm:SoundData Title="custom 1" FilePath="Taunts.wav" />
+            </vm:SoundGroup.Items>
+        </vm:SoundGroup>
+    </vm:SoundModel.CustomSounds>
+    
+</vm:SoundModel>
